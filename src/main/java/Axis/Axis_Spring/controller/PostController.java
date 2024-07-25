@@ -21,7 +21,7 @@ public class PostController {
 
 //  아래는 json형태로 바디값에 덧붙여서 전송해봐서 아래 2개의 메서드를 실행하는 방식이다.
 //    {
-//        "name":"erlia",
+//            "name":"erlia",
 //            "email":"erlia@naver.com",
 //            "group":"axis",
 //            "sex":"man"
