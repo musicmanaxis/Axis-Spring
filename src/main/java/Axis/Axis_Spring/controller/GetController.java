@@ -44,7 +44,9 @@ public class GetController {
     //키와 값이 정해져 있지만 받아야할 파라미터가 많은 결우 DTO 객체를 이용하는 방식
     @GetMapping(value = "request3")
     public String getRequestParam3(MemberDTO memberDTO){
+       // return memberDTO.getEmail();  이런식으로 호출할수도 있다.
         return memberDTO.toString();
     }
     // http://localhost:8080/api/v1/get-api/request3?name=미현&email=엑시스@naver.com&group=하하하&sex=여자
+    // DTO클래스의 멤버변수들에 각 파라미터가 대응된다.
 }
