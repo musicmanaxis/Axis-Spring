@@ -13,6 +13,8 @@ public class GetController {
     public String getVaiable1(@PathVariable String variable){
         return variable;
     }
+    //@PathVariable:Get형식 요청에서 파라미터를 전달하기 위해 URL에 값을 담아 전달하는 방법
+    // {variable}의 이름과 String variable을 일치시켜야 함
     // http://localhost:8080/api/v1/get-api/variable1/{String 값}
     //  http://localhost:8080/api/v1/get-api/variable1/안녕하세요  ->이렇게 해볼것
 
