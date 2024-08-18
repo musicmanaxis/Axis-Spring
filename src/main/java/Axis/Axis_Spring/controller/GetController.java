@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/get-api")   //공통되는 url을 사용하기 위해서 사용  밑에 각 @GetMapping의 상위페이지
+@RequestMapping("api/v1/get-api")   //공통되는 url을 사용하기 위해서 사용,  밑에 각 @GetMapping의 상위페이지
 public class GetController {
 
     @GetMapping(value="variable1/{variable}")
@@ -34,6 +34,7 @@ public class GetController {
     @GetMapping(value = "request2")  //이방법은 입력것이 url에 무작위로 들어올때 쓰는 방법
     public String getRequestParam2(@RequestParam Map<String, String> param) {
         StringBuilder sb = new StringBuilder();
+
 
         param.entrySet().forEach(map -> {sb.append(map.getKey() + ":" + map.getValue() + "\n"); });
         return sb.toString();   //스트링빌더를 스트링으로 변환해서 출력
