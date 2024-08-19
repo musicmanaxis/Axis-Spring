@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@RestController
+@RestController //Rest한 컨트롤러임을 선언
 @RequestMapping("api/v1/get-api")   //공통되는 url을 사용하기 위해서 사용,  밑에 각 @GetMapping의 상위페이지
 public class GetController {
 
@@ -14,7 +14,8 @@ public class GetController {
         return variable;
     }
     //@PathVariable:Get형식 요청에서 파라미터를 전달하기 위해 URL에 값을 담아 전달하는 방법
-    // {variable}의 이름과 String variable을 일치시켜야 함
+    // {"variable"}의 이름과 String "variable"와 같이 이름을 일치시켜야 함
+
     // http://localhost:8080/api/v1/get-api/variable1/{String 값}
     //  http://localhost:8080/api/v1/get-api/variable1/안녕하세요  ->이렇게 해볼것
 
@@ -22,6 +23,8 @@ public class GetController {
     public String getVaiable2(@PathVariable("variable") String var){
         return var;
     }
+    // {"variable"}의 이름과 String "variable"와 같이 이름을 일치시킬수 없을 때 쓰는 방식
+
     // http://localhost:8080/api/v1/get-api/variable1/{String 값}
 
     @GetMapping(value = "request1")
@@ -30,6 +33,8 @@ public class GetController {
                                   @RequestParam String group){
         return "이름:"+name+", 이메일:"+email+", 조직:"+group;
     }
+    //@RequestParam :Get 형식의 요청에서 쿼리 문자열을 전달하기 위해 사용하는 방법
+    //'?'를 기준으로 우측에 {키}={값}의 형태로 전달되며, 복수 형태로 전달할 경우 &를 사용함
     // http://localhost:8080/api/v1/get-api/request1?name=erlia&email=erlia@naver.com&group=axis 웹페지에 입력확인
 
 
@@ -41,13 +46,14 @@ public class GetController {
         param.entrySet().forEach(map -> {sb.append(map.getKey() + ":" + map.getValue() + "\n"); });
         return sb.toString();   //스트링빌더를 스트링으로 변환해서 출력
     }
+    //위 예시 코드는 어떤 요청값이 들어올지 모를 경우 사용하는 방식
     // http://localhost:8080/api/v1/get-api/request2?name=마&email=엑시스@naver.com&group=하하하&sex=남자
 
 
-    //키와 값이 정해져 있지만 받아야할 파라미터가 많은 결우 DTO 객체를 이용하는 방식
+    //키와 값이 정해져 있지만 받아야할 파라미터가 많을 경우 DTO 객체를 이용하는 방식
     @GetMapping(value = "request3")
     public String getRequestParam3(MemberDTO memberDTO){
-       // return memberDTO.getEmail();  이런식으로 호출할수도 있다.
+       // return memberDTO.getName()+""+memberDTO.getEmail()+""+memberDTO.getGroup();  이런식으로 호출할수도 있다.
         return memberDTO.toString();
     }
     // http://localhost:8080/api/v1/get-api/request3?name=미현&email=엑시스@naver.com&group=하하하&sex=여자
