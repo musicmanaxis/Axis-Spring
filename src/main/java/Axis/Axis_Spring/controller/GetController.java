@@ -37,6 +37,12 @@ public class GetController {
 
     // http://localhost:8080/api/v1/get-api/variable1/{String 값}
 
+/*
+    아래의 것은
+    '?'를 기준으로 우측에 {키}={값}의 형태로 전달되며, 복수 형태로 전달할 경우 &를 사용하는
+    방식을 말한다.
+*/
+
     @GetMapping(value = "request1")
     public String getRequestParam(@RequestParam String name,   //각각의 들어오는 값을 이 객체들로 받는다.
                                   @RequestParam String email,
@@ -56,6 +62,7 @@ public class GetController {
 
         param.entrySet().forEach(map -> {sb.append(map.getKey() + ":" + map.getValue() + "\n"); });
         return sb.toString();   //스트링빌더를 스트링으로 변환해서 출력
+
     }
     //위 예시 코드는 어떤 요청값이 뭐가 들어올지 모를 경우 사용하는 방식
     //1. http://localhost:8080/api/v1/get-api/request2?name=마&email=엑시스@naver.com&group=하하하&sex=남자
