@@ -8,9 +8,10 @@
 		<version>3.2.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>Axis</groupId>
 	<artifactId>Axis-Spring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Axis-Spring</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -32,7 +33,6 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -55,6 +55,17 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>  <!-->  스웨거를 설정하기 위한 디펜던시  <-->
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>   <!-->  스웨거를 설정하기 위한 디펜던시  <-->
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

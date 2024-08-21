@@ -7,10 +7,15 @@ import java.util.Map;
 
 //@GetMapping 사용방법...
 
-@RestController //Rest한 컨트롤러임을 선언
+/*
+@RestController
+Rest한 컨트롤러임을 선언, @Controller와 @ResponseBody가 합쳐진 어노테이션이라고 생각하면 된다.
+@Controller와 다르게 반환하려는 주류는 JSON 형태의 객체 데이터다.
+REST API를 개발할 때 주로 사용하며 마찬가지로 ResponseEntity로 감싸서 주로 반환한다.*/
+
+@RestController
 @RequestMapping("api/v1/get-api")  //버전관리를 위해 V1이라고 표시...
 //공통되는 url을 사용하기 위해서 사용,  밑에 각 @GetMapping의 상위페이지
-
 public class GetController {
 
     @GetMapping(value = "/name")
