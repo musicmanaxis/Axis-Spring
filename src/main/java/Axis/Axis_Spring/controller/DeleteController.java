@@ -14,5 +14,6 @@ public class DeleteController {
         return variable;
     }
 
-    //원래는 {variable}으로 디비에서 조회를 하고 처리되었다는 결과 메세지를  return variable 자리에 보여주는 것이다.
+    //원래는 {variable}으로 디비에서 조회를 하고 처리되었다는 결과 메세지를
+    // return variable 자리에 보여주는 것이다.
 }

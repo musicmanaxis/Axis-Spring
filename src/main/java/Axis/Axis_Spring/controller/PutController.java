@@ -33,12 +33,15 @@ public class PutController {
 
 
     //아래 3가지가 핵심포인트
+    //1.toString을 이용하는 방법..결과값 모양이 달라진다.
     @PutMapping(value = "/member1")
     public String postMemberDto1(@RequestBody MemberDTO memberDTO){
         return memberDTO.toString();
     }
     //http://localhost:8080/api/v1/put-api/member1
 
+    //2.Json형식 그대로 보여줌..일반적으로 클라이언트쪽에서도 제이슨 형식을 사용하므로
+    // 이방법을 더 선호
     @PutMapping(value = "/member2")
     public MemberDTO postMemberDto2(@RequestBody MemberDTO memberDTO){
         return memberDTO;
