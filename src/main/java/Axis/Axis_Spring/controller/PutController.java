@@ -32,6 +32,7 @@ public class PutController {
     }
 
 
+    //아래 3가지가 핵심포인트
     @PutMapping(value = "/member1")
     public String postMemberDto1(@RequestBody MemberDTO memberDTO){
         return memberDTO.toString();
