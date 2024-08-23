@@ -31,6 +31,7 @@ public class PutController {
         return sb.toString();
     }
 
+
     @PutMapping(value = "/member1")
     public String postMemberDto1(@RequestBody MemberDTO memberDTO){
         return memberDTO.toString();
