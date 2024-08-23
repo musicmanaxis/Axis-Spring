@@ -38,11 +38,10 @@ public class PostController {
    */
 
 /*
-  @RequestBody 어노테이션은 HTTP 요청의 본문(body)에 포함된 JSON, XML 또는
-  기타 포맷의 데이터를 Java 객체로 변환하는 역할을 합니다.
-  이 어노테이션을 사용하면 클라이언트가 요청 본문에 포함한 데이터를 쉽게 접근할 수 있습니다.
+  @RequestBody 어노테이션은 HTTP 요청의 본문(body)에 포함된
+  JSON, XML 등  기타 포맷의 데이터를 Java 객체로 변환하는 역할을 합니다.
+  이 어노테이션을 사용하면 클라이언트가 요청 본문에 포함한 데이터를 접근할 수 있다.
 */
-
 
     @PostMapping(value = "/member")
     public String postMember(@RequestBody Map<String, Object> postData){  //value값이 어떤게 들어올지 몰라서 Object로 설정
