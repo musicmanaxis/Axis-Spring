@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+
+/*Put API
+해당 리소스가 있으면 갱신하고, 없으면 새로 생성한다. 업데이트를 위한 메서드
+기본적인 동작 방식은 Post API와 동일*/
+
+
 @RestController
 @RequestMapping("/api/v1/put-api")
 public class PutController {
@@ -51,7 +57,8 @@ public class PutController {
     @PutMapping(value = "/member3")
     public ResponseEntity<MemberDTO> postMemberDto3(@RequestBody MemberDTO memberDTO){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(memberDTO);
-        //HttpStatus.ACCEPTED->실행하면 코드값이 202임을 확인할 수 있다.(ACCEPTED를 눌러 링크로 들어가 확인 하면 각종 enum을 확인가능
+        //HttpStatus.ACCEPTED->실행하면 코드값이 202임을 확인할 수 있다.
+        // (ACCEPTED를 눌러 링크로 들어가 확인 하면 각종 enum을 확인가능
         //body(memberDTO) ->위의 return memberDTO;와 동일한 효과를 낸다.
     }
     //http://localhost:8080/api/v1/put-api/member3

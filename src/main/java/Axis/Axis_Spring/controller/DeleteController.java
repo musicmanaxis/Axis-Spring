@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/*Delete API
+서버를 통해서 리소스를 삭제하는 API
+@PathVariable을 통해 리소스ID를 받아 처리. 예)회원탈퇴를 ID를 통해 삭제 */
+
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class DeleteController {
