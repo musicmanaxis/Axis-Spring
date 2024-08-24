@@ -1,50 +1,38 @@
 package Axis.Axis_Spring.dto;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
 public class MemberDTO {
     private String name;
     private String email;
     private String group;
     private String sex;
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
-    @Override
-    public String toString() {    //이형태로 출력됨
-        return "MemberDTO{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", group='" + group + '\'' +
-                ", sex='" + sex + '\'' +
-                '}';
-    }
 }
+//각 필드를 블럭으로 잡고  마우스옵션->Refactor->Delombok하면 각 메서드가 구현되는 것을 볼수 있다.
+/*Lombok?  ->상황에 따라 쓰는곳도 있고 안쓰는 곳도 있다.
+
+    반복되는 메서드를 Annotation을 사용하여 자동으로 작성해주는 라이브러리
+    일반적으로 VO, DTO, Entity등의 데이터 클래스에서 주로 사용됨
+    대표적 Annotation:
+    @Gettter, @Setter,
+
+    생성자관련 Annotation
+    @NoArgConstructor:파라미터가 없는 생성자를 생성
+    @AllArgConstructor,:모든 필드값을 파라미터로 갖는 생성자를 생성
+    @RequiredArgsConstructor:필드값 중 final이나 @NotNull이 붙어있는 생성자를 찾아서  값을 갖는 생성자를 생성
+
+
+    @ToString:exclude속성을 사용하여 특정 필드를 toString에서 제외시킬수 있음
+    @ToString(exclude=“email)이렇게 제외가능
+
+    @EqualsAndHashCode
+    Equals, hashCode메서드를 자동으로 생성
+    callSuper 속성을 통해 메서드 생성시 부모 클래스의 필드까지 고려할지 여부 설정 가능
+-callSuper=true ->부모 클래스 필드값들도 동인한지 체크
+
+    @Data:이것을 사용하면 @Gettter, @Setter, @RequiredArgsConstructor, @ToString, @EqualsAndHashCode을 한번에 추가
+*/

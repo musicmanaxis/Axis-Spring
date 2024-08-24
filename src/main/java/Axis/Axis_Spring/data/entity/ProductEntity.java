@@ -1,0 +1,31 @@
+package Axis.Axis_Spring.data.entity;
+
+import lombok.*;
+import nonapi.io.github.classgraph.json.Id;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="product")  //ProductEntity엔터티를 기반으로 디비에 테이블을 자동으로 생성해주는 옵션
+// 이때 테이블의 이름을 name="product"으로 지정
+public class ProductEntity {
+
+    @Id //DB의 프라이머리 키와 동일한 의미이고 productId에 속성을 부여하였다.
+    String productId;
+    String productName;
+    Integer productPrice;
+    Integer productStock;
+
+    public productDto toDto(){
+        return productDto.builder()
+                .productId(productId)
+                .productName(productName)
+                .productPrice(productPrice)
+                .productStock(productStock)
+                .build();
+    }
+}
