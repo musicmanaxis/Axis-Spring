@@ -11,9 +11,9 @@ public class DeleteController {
 
     @DeleteMapping(value ="/delete/{variable}")   //{variable} =String variable 을 같게...
     public String DeleteVariable(@PathVariable String variable){
-        return variable;
+        return "'"+variable+"'가 삭제되었습니다.";
     }
-
+    //http://localhost:8080/api/v1/get-api/delete/erlia    method=delete로 설정후 진행
     //원래는 {variable}으로 디비에서 조회를 하고 처리되었다는 결과 메세지를
     // return variable 자리에 보여주는 것이다.
 }
