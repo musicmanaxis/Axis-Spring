@@ -13,14 +13,14 @@ import lombok.*;
 public class ProductDto {
     private String productId;
     private String productName;
-    private int prodcutPrice;
+    private int productPrice;
     private int productStock;
 
     public ProductEntity toEntity(){
         return ProductEntity.builder()
                 .productId(productId)
                 .productName(productName)
-                .productPrice(prodcutPrice)
+                .productPrice(productPrice)
                 .productStock(productStock)
                 .build();
 

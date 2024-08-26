@@ -1,7 +1,10 @@
 package Axis.Axis_Spring.data.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 import nonapi.io.github.classgraph.json.Id;
+import  Axis.Axis_Spring.data.dto.ProductDto;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
@@ -10,7 +13,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="product")  //ProductEntity엔터티를 기반으로 디비에 테이블을 자동으로 생성해주는 옵션
+@Table(name="product")  //ProductEntity를 기반으로 디비에 테이블을 자동으로 생성해주는 옵션
 // 이때 테이블의 이름을 name="product"으로 지정
 public class ProductEntity {
 
@@ -20,8 +23,8 @@ public class ProductEntity {
     Integer productPrice;
     Integer productStock;
 
-    public productDto toDto(){
-        return productDto.builder()
+    public ProductDto toDto(){
+        return ProductDto.builder()
                 .productId(productId)
                 .productName(productName)
                 .productPrice(productPrice)
