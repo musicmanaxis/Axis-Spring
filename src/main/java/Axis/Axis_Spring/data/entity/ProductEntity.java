@@ -2,10 +2,10 @@ package Axis.Axis_Spring.data.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.Id;
 import lombok.*;
-import nonapi.io.github.classgraph.json.Id;
 import  Axis.Axis_Spring.data.dto.ProductDto;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 @Entity
 @Getter
@@ -17,8 +17,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // 이때 테이블의 이름을 name="product"으로 지정
 public class ProductEntity {
 
-    @Id //DB의 프라이머리 키와 동일한 의미이고 productId에 속성을 부여하였다.
-    String productId;
+
+    @Id
+    String productId;   //DB의 프라이머리 키와 동일한 의미이고 productId에 속성을 부여하였다.
     String productName;
     Integer productPrice;
     Integer productStock;
