@@ -9,3 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends JpaRepository<ProductEntity, String> {
 
 }
+
+//JpaRepository<레포지토리가 사용할 엔티티, id값의 데이터 타입>

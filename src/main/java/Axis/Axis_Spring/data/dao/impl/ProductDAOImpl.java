@@ -8,23 +8,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public abstract class ProductDAOImpl implements ProductDAO {
+
     ProductRepository productRepository;
 
-    @Autowired  //미리 띄워져잇는 productRepository를 주입
+    @Autowired //new ()같이 객체를 생성하는 것이 아니라..끌어와서 쓴다..
+    //의존성주입, 스프링은 싱클톤만 사용하기 때문에 미리 레포지토리객체를 하나 띄워놓고 이 하나를 여러곳에서 사용하는 방식
+    //그래서 미리 띄워져있는 productRepository를 주입
     public ProductDAOImpl(ProductRepository productRepository){
-
         this.productRepository=productRepository;
     }
 
     @Override
-    public ProductEntity saveProduct(ProductEntity productEntity){   //DB에 저장
-        productRepository.save(productEntity);
+    public ProductEntity saveProduct(ProductEntity productEntity){
+        productRepository.save(productEntity);  //productEntity를 넘겨주면 DB에 저장
+        //save() ProductRepository에는 없지만 조상인터페이스에 있음
         return  productEntity;
     }
 
     @Override
     public ProductEntity getProduct(String productId) {
         ProductEntity productEntity=productRepository.getById(productId);
+        //productId를 넘겨주고 productEntity를 받아옴
+        //getById() ->ProductRepository에는 없지만 조상인터페이스에 있음
         return productEntity;
     }
 
