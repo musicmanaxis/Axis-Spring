@@ -22,7 +22,7 @@ public class ProductController {
         return productService.getProduct(productId);
     }
 
-    //http://localhost:8080/api/v1/product-api/product
+    //http://localhost:8080/api/v1/product-api/product    post방식으로 실행할것
     /* 제이슨 내용
     {
         "productId":"Axis-Book",
