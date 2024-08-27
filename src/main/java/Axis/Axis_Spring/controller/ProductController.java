@@ -13,10 +13,12 @@ public class ProductController {
 
     @Autowired
     public ProductController(ProductService productService){
-        this.productService=productService;
+                this.productService=productService;
     }
 
     //http://localhost:8080/api/v1/product-api/product/{productId}
+    //http://localhost:8080/api/v1/product-api/product/Axis-Book 이걸로 Get방식으로 해보자
+    //Id로 조회하는 방식
     @GetMapping(value = "/product/{productId}")
     public ProductDto getProduct(@PathVariable String productId){
         return productService.getProduct(productId);
