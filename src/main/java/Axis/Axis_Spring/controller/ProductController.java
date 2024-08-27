@@ -22,7 +22,15 @@ public class ProductController {
         return productService.getProduct(productId);
     }
 
-    //http://localhost:8080/api/v1/product-api/product/
+    //http://localhost:8080/api/v1/product-api/product
+    /* 제이슨 내용
+    {
+        "productId":"Axis-Book",
+        "productName":"Axis-Book-1",
+        "productPrice":"5000",
+        "productStock":"5"
+    }
+    */
     @PostMapping(value = "/product")
     public ProductDto createProduct(@RequestBody ProductDto productDto){
 
