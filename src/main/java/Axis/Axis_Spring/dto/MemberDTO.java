@@ -2,7 +2,7 @@ package Axis.Axis_Spring.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
+//DTO Data Transfer Object
 @Getter
 @Setter
 @ToString

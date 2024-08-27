@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class ProductDAOImpl implements ProductDAO {
+public  class ProductDAOImpl implements ProductDAO {
 
     ProductRepository productRepository;
 
-    @Autowired //new ()같이 객체를 생성하는 것이 아니라..끌어와서 쓴다..
+    @Autowired   //new ()같이 객체를 생성하는 것이 아니라..끌어와서 쓴다..
     //의존성주입, 스프링은 싱클톤만 사용하기 때문에 미리 레포지토리객체를 하나 띄워놓고 이 하나를 여러곳에서 사용하는 방식
     //그래서 미리 띄워져있는 productRepository를 주입
     public ProductDAOImpl(ProductRepository productRepository){
