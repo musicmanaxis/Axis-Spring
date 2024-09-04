@@ -18,8 +18,8 @@ import  Axis.Axis_Spring.data.dto.ProductDto;
 public class ProductEntity {
 
 
-    @Id
-    String productId;   //DB의 프라이머리 키와 동일한 의미이고 productId에 속성을 부여하였다.
+    @Id //DB의 프라이머리 키와 동일한 의미이고 productId에 속성을 부여하였다.
+    String productId;
     String productName;
     Integer productPrice;
     Integer productStock;
