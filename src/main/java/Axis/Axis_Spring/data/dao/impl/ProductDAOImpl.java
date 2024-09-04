@@ -6,6 +6,8 @@ import Axis.Axis_Spring.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//DAO는 Repository를 이용하여 작성한다.
+
 @Service
 public  class ProductDAOImpl implements ProductDAO {
 
