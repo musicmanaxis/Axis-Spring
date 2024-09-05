@@ -17,7 +17,7 @@ public class ProductDataHandlerImpl implements ProductDataHandler {
         this.productDAO=productDAO;
     }
 
-    @Override
+    @Override  //DB에 저장하는 작업
     public ProductEntity saveProductEntity(String productId, String productName, int productPrice, int productStock) {
        ProductEntity productEntity=new ProductEntity(productId, productName, productPrice, productStock);
        return  productDAO.saveProduct(productEntity);

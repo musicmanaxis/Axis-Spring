@@ -9,9 +9,9 @@ import Axis.Axis_Spring.service.ProductService;
 @RequestMapping("/api/v1/product-api")
 public class ProductController {
 
-    private ProductService productService;
+    private ProductService productService;  //프로그래머가 작성한 클래스
 
-    @Autowired
+    @Autowired   //생성자 부분에서 이 어노테이션을 쓰면 메모리에 떠 있는 productService를 끌어다 연결해준다.
     public ProductController(ProductService productService){
                 this.productService=productService;
     }

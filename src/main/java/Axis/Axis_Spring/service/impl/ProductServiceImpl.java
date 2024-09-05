@@ -7,6 +7,9 @@ import Axis.Axis_Spring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+      /*  서비스 클래스에서 Entity를 Dto로 변환해주는 작업을 했다.
+        이 변환작업은 컨트롤러에서도 할수 있는데 이것은 프로젝트별 상황에 맞게 바낄수 있다.*/
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -23,6 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
         ProductDto productDto=new ProductDto(productEntity.getProductId(), productEntity.getProductName(),
                                             productEntity.getProductPrice(), productEntity.getProductStock());
+        //productEntity에서 productDto 변환작업을 해주었다.
         return productDto;
     }
 
