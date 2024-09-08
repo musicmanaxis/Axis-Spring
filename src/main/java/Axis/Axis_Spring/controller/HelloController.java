@@ -40,6 +40,7 @@ public class HelloController {
         throw new Exception();  //여기서 발생시킨것이 public ResponseEntity<Map<String, String>> 으로 전달
     }
 
+    @ExceptionHandler(value = Exception.class)
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
