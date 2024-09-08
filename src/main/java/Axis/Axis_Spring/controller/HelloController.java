@@ -45,7 +45,7 @@ public class HelloController {
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
 
-        LOGGER.info(e.getLocalizedMessage());  //뭐가 들어오는지 보자
+        LOGGER.info("Exception e의 내용->"+e.getMessage());  //뭐가 들어오는지 보자
         LOGGER.info("Controller 내 ExceptionHandler 호출");
 
         Map<String, String> map=new HashMap<>();
