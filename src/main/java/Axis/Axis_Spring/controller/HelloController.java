@@ -1,9 +1,15 @@
 package Axis.Axis_Spring.controller;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController   //Controller라는 것을 알려주는 역할
 public class HelloController {
@@ -28,6 +34,27 @@ public class HelloController {
         LOGGER.warn("Warn Log");
         LOGGER.error("Error Log");
     }
+
+    @PostMapping("/exception")
+    public void exceptionTest() throws Exception{
+        throw new Exception();  //여기서 발생시킨것이 public ResponseEntity<Map<String, String>> 으로 전달
+    }
+
+    public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
+        HttpHeaders responseHeadres =new HttpHeaders();
+        HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
+
+        LOGGER.info(e.getLocalizedMessage());  //뭐가 들어오는지 보자
+        LOGGER.info("Controller 내 ExceptionHandler 호출");
+
+        Map<String, String> map=new HashMap<>();
+        map.put("Error Type:", httpStatus.getReasonPhrase());
+        map.put("Code", "400");
+        map.put("Message", "에러발생");
+
+        return new ResponseEntity<>(map, responseHeadres, httpStatus);
+    }
+
 
 
 }
