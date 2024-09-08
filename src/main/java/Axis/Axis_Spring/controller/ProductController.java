@@ -1,6 +1,7 @@
 package Axis.Axis_Spring.controller;
 
 import Axis.Axis_Spring.data.dto.ProductDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,8 +39,9 @@ public class ProductController {
     }
     */
     @PostMapping(value = "/product")
-    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto){
-
+    public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto){
+   //@Valid 유효성 검사를 하는 항목인데, ProductDto에서의 필드값에 유효하지 않은 값이 넘어가면 에러가 발생하게 설정하는것
+        //상품가격을 -500등으로 넘기면 에러가 발생하게 설정
         String productId=productDto.getProductId();
         String productName=productDto.getProductName();
         int productPrice=productDto.getProductPrice();
@@ -49,7 +51,7 @@ public class ProductController {
 
 
 
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
 
