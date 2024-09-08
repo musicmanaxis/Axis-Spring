@@ -21,6 +21,7 @@ public class ProductController {
                 this.productService=productService;
     }
 
+    //Get방식은 데이터를 조회할 때 쓰는 방식임으로 여기선 id를 통해 데이터를 가져오는 것을 구현한 것이다.
     //http://localhost:8080/api/v1/product-api/product/{productId}
     //http://localhost:8080/api/v1/product-api/product/Axis-Book 이걸로 Get방식으로 해보자
     //Id로 조회하는 방식
@@ -38,10 +39,12 @@ public class ProductController {
         "productStock":"5"
     }
     */
+    //Post방식은 데이터를 집어는 넣는 방식을 쓰는 것..
     @PostMapping(value = "/product")
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto){
    //@Valid 유효성 검사를 하는 항목인데, ProductDto에서의 필드값에 유효하지 않은 값이 넘어가면 에러가 발생하게 설정하는것
         //상품가격을 -500등으로 넘기면 에러가 발생하게 설정
+
         String productId=productDto.getProductId();
         String productName=productDto.getProductName();
         int productPrice=productDto.getProductPrice();
