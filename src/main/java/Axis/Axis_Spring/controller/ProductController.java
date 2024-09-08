@@ -2,8 +2,12 @@ package Axis.Axis_Spring.controller;
 
 import Axis.Axis_Spring.data.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import Axis.Axis_Spring.service.ProductService;
+
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/v1/product-api")
@@ -34,14 +38,19 @@ public class ProductController {
     }
     */
     @PostMapping(value = "/product")
-    public ProductDto createProduct(@RequestBody ProductDto productDto){
+    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto){
 
         String productId=productDto.getProductId();
         String productName=productDto.getProductName();
         int productPrice=productDto.getProductPrice();
         int productStock=productDto.getProductStock();
 
-        return productService.saveProduct(productId, productName, productPrice, productStock);
+        ProductDto response=productService.saveProduct(productId, productName, productPrice, productStock);
+
+
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+
     }
 
     //http://localhost:8080/api/v1/product-api/product/{productId}
