@@ -44,8 +44,10 @@ public class ProductController {
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto){
    //@Valid 유효성 검사를 하는 항목인데, ProductDto에서의 필드값에 유효하지 않은 값이 넘어가면 에러가 발생하게 설정하는것
         //상품가격을 -500등으로 넘기면 에러가 발생하게 설정
-
+        System.out.println("getProductId를 찍어보자="+productDto.getProductId());
         String productId=productDto.getProductId();
+        //http://localhost:8080/api/v1/product-api/product 페이지에서 제이슨 형태의 데이터를 메모리에 떠있는 productDto객체에 넘긴다.
+        //이미 메모리에 떠있는 productDto객체의 각필드값의 제이슨 데이터가 넘어간것을 다시 가져온다.
         String productName=productDto.getProductName();
         int productPrice=productDto.getProductPrice();
         int productStock=productDto.getProductStock();
