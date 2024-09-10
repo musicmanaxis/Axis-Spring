@@ -39,7 +39,7 @@ public class HelloController {
     public void exceptionTest() throws Exception{
         throw new Exception();
         //여기서 발생시킨것이 AxisSpringExceptionHandler클래스의
-        // public ResponseEntity<Map<String, String>> 으로 전달
+        // AxisSpringExceptionHandler클래스의 ExceptionHandler(Exception e)메서드로 전달
         //모든 예외가 발생하면 AxisSpringExceptionHandler에서 처리하기로 어노테이션을 붙임
     }
 
