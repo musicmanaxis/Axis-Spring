@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice   //컨트롤러에서 발생하는 예외처리는 여기서 처리하겠다라는 뜻
+@RestControllerAdvice
+//모든 컨트롤러에서 발생하는 예외처리는 여기서 정의하고 처리하겠다라는 의미
 public class AxisSpringExceptionHandler {
     private final Logger LOGGER = LoggerFactory.getLogger(AxisSpringExceptionHandler.class);
 
     @ExceptionHandler(value = Exception.class)
+    //@ExceptionHandler 이것을 사용하면 발생하는 예외마다 처리할 메서드를 저의
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
