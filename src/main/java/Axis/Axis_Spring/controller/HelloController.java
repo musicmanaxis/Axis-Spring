@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +46,7 @@ public class HelloController {
     }
 
     @ExceptionHandler(value = Exception.class)  //지역설정 예외처리(전역설정보다 더 우선순위)
+    //value = Exception.class 여러 예외 클래스중에서 가장 최상위 것을 이용하여 처리
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
@@ -54,7 +56,7 @@ public class HelloController {
         System.out.println("httpStatus="+httpStatus.value()+", 내용:"+httpStatus.getReasonPhrase());
         System.out.println("responseHeadres="+responseHeadres);
         LOGGER.info("Exception e의 내용->"+e.getMessage());  //뭐가 들어오는지 보자
-        LOGGER.info("Controller 내 ExceptionHandler 호출");
+        LOGGER.info("Hello Controller 내에서 ExceptionHandler 호출");
 
         Map<String, String> map=new HashMap<>();
         map.put("Error Type:", httpStatus.getReasonPhrase()); //

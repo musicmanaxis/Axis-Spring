@@ -26,7 +26,7 @@ public class AxisSpringExceptionHandler {
 
         LOGGER.info("e.getLocalizedMessage()="+e.getLocalizedMessage());
         //하단 콘솔창에서 뭐가 들어오는지 보자
-        LOGGER.info("Advice 내 ExceptionHandler 호출");
+        LOGGER.info("Advice 내 AxisSpringExceptionHandler 클래스에서 호출");
 
         Map<String, String> map=new HashMap<>();
         map.put("Error Type:", httpStatus.getReasonPhrase());
