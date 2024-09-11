@@ -47,16 +47,21 @@ public class HelloController {
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
+        //HttpStatus: enum클래스이고 예외에 대해서 상수값인 BAD_REQUEST를 발생시킨다....
+        //"/exception"페이지에서 일부러 예외를 발생시키고 여기 메서드에서 처리하는 방식
 
+        System.out.println("httpStatus="+httpStatus.value()+", 내용:"+httpStatus.getReasonPhrase());
+        System.out.println("responseHeadres="+responseHeadres);
         LOGGER.info("Exception e의 내용->"+e.getMessage());  //뭐가 들어오는지 보자
         LOGGER.info("Controller 내 ExceptionHandler 호출");
 
         Map<String, String> map=new HashMap<>();
-        map.put("Error Type:", httpStatus.getReasonPhrase());
+        map.put("Error Type:", httpStatus.getReasonPhrase()); //
         map.put("Code", "400");
         map.put("Message", "에러발생");
 
         return new ResponseEntity<>(map, responseHeadres, httpStatus);
+
     }
 
 
