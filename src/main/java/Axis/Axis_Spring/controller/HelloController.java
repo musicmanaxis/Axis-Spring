@@ -38,12 +38,13 @@ public class HelloController {
     @PostMapping("/exception")
     public void exceptionTest() throws Exception{
         throw new Exception();
-        //여기서 발생시킨것이 AxisSpringExceptionHandler클래스의
-        // AxisSpringExceptionHandler클래스의 ExceptionHandler(Exception e)메서드로 전달
-        //모든 예외가 발생하면 AxisSpringExceptionHandler에서 처리하기로 어노테이션을 붙임
+        //여기서 발생시킨것이 1.아래의 @ExceptionHandler(value = Exception.class)이 붙은 메서드에서 우선 처리되고
+        // 1번의 어노테이션을 주석처리하면
+        // 2.AxisSpringExceptionHandler클래스의 ExceptionHandler(Exception e)메서드로 전달함으로서 2번째 순위로 처리된다
+        //1번이 없으면  모든 예외가 발생하면 2번에서 AxisSpringExceptionHandler에서 처리하기로 어노테이션을 붙임
     }
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Exception.class)  //지역설정 예외처리(전역설정보다 더 우선순위)
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;

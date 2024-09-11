@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice
+@RestControllerAdvice //전역설정(지역설정이 더 우선순위에 있다.)
 //모든 컨트롤러에서 발생하는 예외처리는 여기서 정의하고 처리하겠다라는 의미
 public class AxisSpringExceptionHandler {
     private final Logger LOGGER = LoggerFactory.getLogger(AxisSpringExceptionHandler.class);
@@ -24,7 +24,8 @@ public class AxisSpringExceptionHandler {
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
 
-        LOGGER.info(e.getLocalizedMessage());  //뭐가 들어오는지 보자
+        LOGGER.info("e.getLocalizedMessage()="+e.getLocalizedMessage());
+        //하단 콘솔창에서 뭐가 들어오는지 보자
         LOGGER.info("Advice 내 ExceptionHandler 호출");
 
         Map<String, String> map=new HashMap<>();
