@@ -48,6 +48,8 @@ public class HelloController {
     @ExceptionHandler(value = Exception.class)  //지역설정 예외처리(전역설정보다 더 우선순위)
     //value = Exception.class 여러 예외 클래스중에서 가장 최상위 것을 이용하여 처리
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
+        //여기서는 반환값이 없는 void로  처리해도 되지만 나중에 사용할려고 반환타입을 갖는것 같다.void로 테스트 해봄..에러없음
+
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;
         //HttpStatus: enum클래스이고 예외에 대해서 상수값인 BAD_REQUEST를 발생시킨다....
