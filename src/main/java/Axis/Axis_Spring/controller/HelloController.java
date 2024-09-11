@@ -60,7 +60,13 @@ public class HelloController {
         map.put("Code", "400");
         map.put("Message", "에러발생");
 
-        return new ResponseEntity<>(map, responseHeadres, httpStatus);
+        ResponseEntity re=new ResponseEntity<>(map, responseHeadres, httpStatus);
+        System.out.println("ResponseEntity의 내용:"+re);
+        return re;
+
+        //ResponseEntity 클래스에는 여러타입의 생성자중 3개 매개변수를 가져와서 에러에 대한 내용을 담았다.
+
+
 
     }
 
