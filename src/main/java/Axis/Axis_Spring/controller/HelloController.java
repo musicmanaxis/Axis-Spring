@@ -62,7 +62,7 @@ public class HelloController {
 
         Map<String, String> map=new HashMap<>();
         map.put("Error Type:", httpStatus.getReasonPhrase()); //
-        map.put("Code", "400");
+        map.put("Code", "404");
         map.put("Message", "에러발생");
 
         ResponseEntity re=new ResponseEntity<>(map, responseHeadres, httpStatus);

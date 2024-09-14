@@ -1,5 +1,8 @@
 package Axis.Axis_Spring.controller;
 
+import Axis.Axis_Spring.common.AxisSpringExceptionHandler;
+import Axis.Axis_Spring.common.Constants;
+import Axis.Axis_Spring.common.exception.AxisSpringException;
 import Axis.Axis_Spring.data.dto.ProductDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,4 +68,9 @@ public class ProductController {
     public ProductDto deleteProduct(@PathVariable String productId){
         return null;
     }
+
+    @PostMapping(value = "/product/exception")
+    public void exceptionTest() throws AxisSpringException{
+        throw  new AxisSpringException(Constants.ExceptionClass.PRODUCT, HttpStatus.FORBIDDEN, " 접근이 금지되었습니다.");
+   }
 }

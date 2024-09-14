@@ -1,13 +1,12 @@
-package Axis.Axis_Spring.exception;
+package Axis.Axis_Spring.common;
 
-import Axis.Axis_Spring.controller.HelloController;
+import Axis.Axis_Spring.common.exception.AxisSpringException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
@@ -34,6 +33,18 @@ public class AxisSpringExceptionHandler {
         map.put("Message", "에러발생");
 
         return new ResponseEntity<>(map, responseHeadres, httpStatus);
+    }
+
+    @ExceptionHandler(value = AxisSpringException.class)
+    public ResponseEntity<Map<String, String>> ExceptionHandler(AxisSpringException e){
+        HttpHeaders responseHeadres =new HttpHeaders();
+
+        Map<String, String> map=new HashMap<>();
+        map.put("Error Type:", e.getHttpStatusType());
+        map.put("Code", Integer.toString(e.getHttpStatusCode()));
+        map.put("Message", e.getMessage());
+
+        return new ResponseEntity<>(map, responseHeadres, e.getHttpStatus());
     }
 
 }
