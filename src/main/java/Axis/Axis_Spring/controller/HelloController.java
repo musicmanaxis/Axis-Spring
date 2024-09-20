@@ -34,8 +34,8 @@ public class HelloController {
         LOGGER.info("Info Log");
         LOGGER.warn("Warn Log");
         LOGGER.error("Error Log");
-    }
 
+    }
     @PostMapping("/exception")
     public void exceptionTest() throws Exception{
         throw new Exception();
@@ -49,6 +49,8 @@ public class HelloController {
     //value = Exception.class 여러 예외 클래스중에서 가장 최상위 것을 이용하여 처리
     public ResponseEntity<Map<String, String>> ExceptionHandler(Exception e){
         //여기서는 반환값이 없는 void로  처리해도 되지만 나중에 사용할려고 반환타입을 갖는것 같다.void로 테스트 해봄..에러없음
+        //ResponseEntity를 사용하는 이유:https://hyeonic.tistory.com/197
+        // ResponseEntity를 활용하면 다양한 정보를 적용하여 응답으로 전달할 수 있게 된다.
 
         HttpHeaders responseHeadres =new HttpHeaders();
         HttpStatus httpStatus=HttpStatus.BAD_REQUEST;

@@ -1,6 +1,6 @@
 package Axis.Axis_Spring.controller;
 
-import Axis.Axis_Spring.dto.MemberDTO;
+import Axis.Axis_Spring.data.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;

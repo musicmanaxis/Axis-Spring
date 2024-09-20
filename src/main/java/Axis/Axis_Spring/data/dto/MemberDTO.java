@@ -1,4 +1,4 @@
-package Axis.Axis_Spring.dto;
+package Axis.Axis_Spring.data.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,7 +10,7 @@ public class MemberDTO {
     private String name;
     private String email;
     private String group;
-    private String sex;
+    private String sex;    //내가 만든거
 }
 //각 필드를 블럭으로 잡고  마우스옵션->Refactor->Delombok하면 각 메서드가 구현되는 것을 볼수 있다.
 /*Lombok?  ->상황에 따라 쓰는곳도 있고 안쓰는 곳도 있다.
