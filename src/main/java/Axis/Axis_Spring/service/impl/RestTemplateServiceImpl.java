@@ -11,16 +11,17 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-
+//이서비스를 사용할려면 AxisServerBox의 별도의 springApp를 사용하여 구동시켜야 한다.
+//AxisServerBox에서 요청에 대한 응답을 하는 별도의 서버이다.
 @Service
 public class RestTemplateServiceImpl implements RestTemplateService {
     private final Logger LOGGER= LoggerFactory.getLogger(RestTemplateServiceImpl.class);
 
     @Override
     public String getAxis(){
-        URI uri= UriComponentsBuilder
+        URI uri= UriComponentsBuilder   //어떤 경로로 요청을 할건지...
                 .fromUriString("http://localhost:9090")
-                .path("/api/server/Axis")   //뒤에 붙는 경로
+                .path("/api/server/axis")   //뒤에 붙는 경로
                 .encode()    //UTF-8로 인코딩
                 .build()
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
@@ -39,7 +40,7 @@ public class RestTemplateServiceImpl implements RestTemplateService {
         URI uri= UriComponentsBuilder
                 .fromUriString("http://localhost:9090")
                 .path("/api/server/name")   //뒤에 붙는 경로
-                .queryParam("name", "Erlia")  //키값과 value값을 넣는다
+                .queryParam("name", "Erlia")  //requestParameter->키값과 value값을 넣는다
                 .encode()    //UTF-8로 인코딩
                 .build()
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
@@ -79,19 +80,19 @@ public class RestTemplateServiceImpl implements RestTemplateService {
                 .path("/api/server/member")
                 .queryParam("name", "Erlia")
                 .queryParam("email", "erlia@navre.com")
-                .queryParam("organization", "Axis")
+                .queryParam("group", "Axis")
                 .encode()    //UTF-8로 인코딩
                 .build()
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
 
-        MemberDTO memberDTO=new MemberDTO();
+        MemberDTO memberDTO=new MemberDTO();   //RequestBody에 값을 넣기 위해 사용
         memberDTO.setName("erlia");
         memberDTO.setEmail("aaa@ssa.com");
         memberDTO.setGroup("Axis");
 
         RestTemplate restTemplate=new RestTemplate();
         ResponseEntity<MemberDTO> responseEntity=restTemplate.postForEntity(uri, memberDTO, MemberDTO.class);
-
+//request값:memberDTO, MemberDTO.class:리턴받는 타입
         LOGGER.info("status code:{}", responseEntity.getStatusCode());
         LOGGER.info("body: {}", responseEntity.getBody());
 
@@ -117,6 +118,7 @@ public class RestTemplateServiceImpl implements RestTemplateService {
                 .post(uri)   //post메서드를 사용하겠다.
                 .header("Axis-Header", "Axis Spring")  //키값과 value값
                 .body(memberDTO);
+        //requestEntity에는 post방식, header, body값이 들어가 있다.
 
         RestTemplate restTemplate=new RestTemplate();
         ResponseEntity<MemberDTO> responseEntity=restTemplate.exchange(requestEntity, MemberDTO.class);
