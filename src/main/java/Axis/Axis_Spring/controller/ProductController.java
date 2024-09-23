@@ -1,6 +1,5 @@
 package Axis.Axis_Spring.controller;
 
-import Axis.Axis_Spring.common.AxisSpringExceptionHandler;
 import Axis.Axis_Spring.common.Constants;
 import Axis.Axis_Spring.common.exception.AxisSpringException;
 import Axis.Axis_Spring.data.dto.ProductDto;
@@ -9,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import Axis.Axis_Spring.service.ProductService;
-
-import java.util.logging.Logger;
+import Axis.Axis_Spring.service.impl.ProductService;
 
 @RestController
 @RequestMapping("/api/v1/product-api")

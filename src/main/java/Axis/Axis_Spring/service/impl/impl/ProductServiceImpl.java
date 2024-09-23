@@ -1,9 +1,9 @@
-package Axis.Axis_Spring.service.impl;
+package Axis.Axis_Spring.service.impl.impl;
 
 import Axis.Axis_Spring.data.dto.ProductDto;
 import Axis.Axis_Spring.data.entity.ProductEntity;
 import Axis.Axis_Spring.data.handler.ProductDataHandler;
-import Axis.Axis_Spring.service.ProductService;
+import Axis.Axis_Spring.service.impl.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

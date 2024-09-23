@@ -1,7 +1,7 @@
-package Axis.Axis_Spring.service.impl;
+package Axis.Axis_Spring.service.impl.impl;
 
 import Axis.Axis_Spring.data.dto.MemberDTO;
-import Axis.Axis_Spring.service.RestTemplateService;
+import Axis.Axis_Spring.service.impl.RestTemplateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.RequestEntity;
@@ -21,7 +21,7 @@ public class RestTemplateServiceImpl implements RestTemplateService {
     public String getAxis(){
         URI uri= UriComponentsBuilder   //어떤 경로로 요청을 할건지...
                 .fromUriString("http://localhost:9090")
-                .path("/api/server/axis")   //뒤에 붙는 경로
+                .path("/api/server/jong-ho")   //뒤에 붙는 경로
                 .encode()    //UTF-8로 인코딩
                 .build()
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
@@ -61,7 +61,7 @@ public class RestTemplateServiceImpl implements RestTemplateService {
                 .path("/api/server/path-variable/{name}")   //.expand("Erlia")의 erlia를 넣어주게 된다
                 .encode()    //UTF-8로 인코딩
                 .build()
-                .expand("Erlia")  //복수의 값을 넣어야 할 경우 , 추가하여 구분
+                .expand("Erlia2")  //복수의 값을 넣어야 할 경우 , 추가하여 구분
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
 
         RestTemplate restTemplate=new RestTemplate();
@@ -78,17 +78,17 @@ public class RestTemplateServiceImpl implements RestTemplateService {
         URI uri= UriComponentsBuilder
                 .fromUriString("http://localhost:9090")
                 .path("/api/server/member")
-                .queryParam("name", "Erlia")
-                .queryParam("email", "erlia@navre.com")
-                .queryParam("group", "Axis")
+                .queryParam("name", "Erlia22")
+                .queryParam("email", "erlia22@navre.com")
+                .queryParam("group", "Axis22")
                 .encode()    //UTF-8로 인코딩
                 .build()
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
 
         MemberDTO memberDTO=new MemberDTO();   //RequestBody에 값을 넣기 위해 사용
-        memberDTO.setName("erlia");
-        memberDTO.setEmail("aaa@ssa.com");
-        memberDTO.setGroup("Axis");
+        memberDTO.setName("erlia22");
+        memberDTO.setEmail("aaa22@ssa.com");
+        memberDTO.setGroup("Axis22");
 
         RestTemplate restTemplate=new RestTemplate();
         ResponseEntity<MemberDTO> responseEntity=restTemplate.postForEntity(uri, memberDTO, MemberDTO.class);
@@ -110,9 +110,9 @@ public class RestTemplateServiceImpl implements RestTemplateService {
                 .toUri();  //위에 build()로 반환이 component로 됨으로 uri로 변경
 
         MemberDTO memberDTO=new MemberDTO();
-        memberDTO.setName("erlia");
+        memberDTO.setName("erlia5291");
         memberDTO.setEmail("aaa@ssa.com");
-        memberDTO.setGroup("Axis");
+        memberDTO.setGroup("Axis5291");
 
         RequestEntity<MemberDTO> requestEntity=RequestEntity   //여기서 차이점
                 .post(uri)   //post메서드를 사용하겠다.
