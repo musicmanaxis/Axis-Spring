@@ -75,7 +75,7 @@ public class ProductControllerTest {
 
         ProductDto productDto =
                 ProductDto.builder()
-                        .productId("15871")
+                        .productId("15871")     //이값을 15871 대신 다른값으로 바꾸면 exception으로 처리된다.
                         .productName("pen")
                         .productPrice(5000)
                         .productStock(2000)
