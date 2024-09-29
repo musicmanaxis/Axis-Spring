@@ -90,7 +90,7 @@ public class ProductControllerTest {
                         .build();
         Gson gson = new Gson();   //구글에서 json을 편하게 다루도록 제공한 라이브러리
         String content = gson.toJson(productDto);  //productDto객체를 json형태이 string값으로 만들어줌.
-
+        System.out.println("content의 내용:"+content);
         // 아래 코드로 json 형태 변경 작업을 대체할 수 있음
         // String json = new ObjectMapper().writeValueAsString(productDto);
         System.out.println("==============/api/v1/product-api/product/의 post방식 Test 내용출력=========================");
