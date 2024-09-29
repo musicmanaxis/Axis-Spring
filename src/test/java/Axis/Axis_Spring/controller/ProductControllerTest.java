@@ -20,14 +20,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+//하단에 테스트에 관련한 글을 적어놓았다.
 
 
-@WebMvcTest(ProductController.class)
+@WebMvcTest(ProductController.class)  //ProductController를 테스트
 public class ProductControllerTest {
 
-    @Autowired private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
     @MockBean
     ProductService productService;
+
+    //@WebMvcTest는 MockMvc를 빈으로 등록하기 때문에, @WebMvcTest만 선언해줘도, MockMvc 객체가 주입되게 된다.
+   /* @WebMvcTest에서는 Web Layer 관련 빈들만 등록하기 때문에,
+       컨트롤러는 주입이 정상적으로 되지만, @Component로 등록된 리포지토리와 서비스는 주입이 되지 않는다.
+       따라서, @WebMvcTest에서 리포지토리와 서비스를 사용하기 위해서는
+       @MockBean을 사용하여 리포지토리와 서비스를 Mock 객체에 빈으로 등록해줘야 한다.*/
 
     // http://localhost:8080/api/v1/product-api/product/{productId}
     @Test
@@ -103,3 +111,22 @@ public class ProductControllerTest {
         verify(productService).saveProduct("15871", "pen", 5000, 2000);
     }
 }
+
+/*
+MockMvc는 Spring 애플리케이션의 웹 계층을 테스트하기 위한 목(Mocks) 테스트 지원 클래스 입니다.
+이를 사용하면 실제 HTTP 요청을 보내지 않고도 컨트롤러 엔드포인트를 호출하고 해당 엔드포인트의 응답을 검증할 수 있습니다
+
+Junit 테스트 시에 @WebMvcTest와 @SpringBootTest를 대표적으로 사용하는데,
+두 가지 Test 어노테이션의 차이가 존재한다고 한다.
+※ Mock이란?
+실제 객체를 만들어서 테스트하기가 어려운 경우에, 가짜 객체를 만들어서 테스트하는 기술이다.
+※ MockMvc란?
+MVC에 관련된 Mock 가짜 객체를 말한다.
+웹 어플리케이션을 애플리케이션 서버에 배포하지 않고, 테스트용 MVC 환경을 만들어서
+요청 및 전송, 응답 기능을 제공해주는 객체이다.
+대부분의 어플리케이션 기능을 테스트하기 위해서는 MockMvc 객체를 만들어서 테스트하게 되는데,
+MockMvc를 @Autowired로 주입받아서 사용할 수 있다.
+
+
+
+*/
