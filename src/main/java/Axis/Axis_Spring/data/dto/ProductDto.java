@@ -1,6 +1,6 @@
 package Axis.Axis_Spring.data.dto;
 
-import Axis.Axis_Spring.data.entity.ProductEntity;
+import Axis.Axis_Spring.data.entity.Product;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -32,8 +32,8 @@ public class ProductDto {
     private int productStock;
 
 
-    public ProductEntity toEntity(){
-        return ProductEntity.builder()
+    public Product toEntity(){
+        return Product.builder()
                 .productId(productId)
                 .productName(productName)
                 .productPrice(productPrice)

@@ -1,7 +1,7 @@
 package Axis.Axis_Spring.data.handler.impl;
 
 import Axis.Axis_Spring.data.dao.ProductDAO;
-import Axis.Axis_Spring.data.entity.ProductEntity;
+import Axis.Axis_Spring.data.entity.Product;
 import Axis.Axis_Spring.data.handler.ProductDataHandler;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class ProductDataHandlerImpl implements ProductDataHandler {
     }
 
     @Override  //DB에 저장하는 작업
-    public ProductEntity saveProductEntity(String productId, String productName, int productPrice, int productStock) {
-       ProductEntity productEntity=new ProductEntity(productId, productName, productPrice, productStock);
-       return  productDAO.saveProduct(productEntity);
+    public Product saveProductEntity(String productId, String productName, int productPrice, int productStock) {
+       Product product =new Product(productId, productName, productPrice, productStock);
+       return  productDAO.saveProduct(product);
      }
 
     @Override  //DB에서 엔티티를 불러오는 단계
-    public ProductEntity getProductEntity(String productId) {
+    public Product getProductEntity(String productId) {
        return productDAO.getProduct((productId));
     }
 }

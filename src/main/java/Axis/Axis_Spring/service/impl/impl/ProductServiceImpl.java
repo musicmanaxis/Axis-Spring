@@ -1,7 +1,7 @@
 package Axis.Axis_Spring.service.impl.impl;
 
 import Axis.Axis_Spring.data.dto.ProductDto;
-import Axis.Axis_Spring.data.entity.ProductEntity;
+import Axis.Axis_Spring.data.entity.Product;
 import Axis.Axis_Spring.data.handler.ProductDataHandler;
 import Axis.Axis_Spring.service.impl.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +22,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto saveProduct(String productId, String productName, int productPrice, int productStock) {
-        ProductEntity productEntity=productDataHandler.saveProductEntity(productId, productName, productPrice, productStock);
+        Product product =productDataHandler.saveProductEntity(productId, productName, productPrice, productStock);
 
-        ProductDto productDto=new ProductDto(productEntity.getProductId(), productEntity.getProductName(),
-                                            productEntity.getProductPrice(), productEntity.getProductStock());
+        ProductDto productDto=new ProductDto(product.getProductId(), product.getProductName(),
+                                            product.getProductPrice(), product.getProductStock());
         //productEntity에서 productDto 변환작업을 해주었다.
         return productDto;
     }
 
     @Override
     public ProductDto getProduct(String productId) {
-        ProductEntity productEntity=productDataHandler.getProductEntity(productId);
-        ProductDto productDto=new ProductDto(productEntity.getProductId(), productEntity.getProductName(),
-                                             productEntity.getProductPrice(), productEntity.getProductStock());
+        Product product =productDataHandler.getProductEntity(productId);
+        ProductDto productDto=new ProductDto(product.getProductId(), product.getProductName(),
+                                             product.getProductPrice(), product.getProductStock());
         return productDto;
     }
 }

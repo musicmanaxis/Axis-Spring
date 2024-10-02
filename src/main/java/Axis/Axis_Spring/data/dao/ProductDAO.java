@@ -1,10 +1,10 @@
 package Axis.Axis_Spring.data.dao;
 
-import Axis.Axis_Spring.data.entity.ProductEntity;
+import Axis.Axis_Spring.data.entity.Product;
 
 public interface ProductDAO {
 
-    ProductEntity saveProduct(ProductEntity productEntity);
-    ProductEntity getProduct(String productId);
+    Product saveProduct(Product product);
+    Product getProduct(String productId);
 
 }

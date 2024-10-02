@@ -47,7 +47,7 @@ public class ProductControllerTest {
         //getProduct()가 ProductDto를 리턴하기 때문에 willReturn값도 ProductDto객체를 넘겨주어야 한다.
         given(productService.getProduct("12315"))
                 .willReturn(new ProductDto("15871", "pen", 5000, 2000));
-
+        //given()->사전 세팅작업..가상으로 이렇게 세팅을 해놓고 테스트한다는 의미
         String productId = "12315";
 
          //perform:restAPI test를 해주는 환경을 만들어준다.

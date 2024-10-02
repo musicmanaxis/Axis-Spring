@@ -1,7 +1,7 @@
 package Axis.Axis_Spring.data.dao.impl;
 
 import Axis.Axis_Spring.data.dao.ProductDAO;
-import Axis.Axis_Spring.data.entity.ProductEntity;
+import Axis.Axis_Spring.data.entity.Product;
 import Axis.Axis_Spring.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,18 +21,18 @@ public  class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public ProductEntity saveProduct(ProductEntity productEntity){
-        productRepository.save(productEntity);  //productEntity를 넘겨주면 DB에 저장
+    public Product saveProduct(Product product){
+        productRepository.save(product);  //productEntity를 넘겨주면 DB에 저장
         //save() ProductRepository에는 없지만 조상인터페이스에 있음
-        return  productEntity;
+        return product;
     }
 
     @Override
-    public ProductEntity getProduct(String productId) {
-        ProductEntity productEntity=productRepository.getById(productId);
+    public Product getProduct(String productId) {
+        Product product =productRepository.getById(productId);
         //productId를 넘겨주고 productEntity를 받아옴
         //getById() ->ProductRepository에는 없지만 조상인터페이스에 있음
-        return productEntity;
+        return product;
     }
 
 
